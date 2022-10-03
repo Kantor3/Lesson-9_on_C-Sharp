@@ -160,11 +160,11 @@ A(m, 0) = A(m - 1, 1)
 A(m, n) = A(m - 1, A(m, n -1)) 
 ---------------------------------------------------------------------
 */
-int AkkermanFunction(int m, int n, int count = 0)
+int AkkermanFunction(int m, int n)
 {
-    if (m == 0) return n + 1;
-    else if (n == 0) return AkkermanFunction(m - 1, 1, count);
-    else return AkkermanFunction(m - 1, AkkermanFunction(m, n - 1, count), count);
+    if      (m == 0) return n + 1;
+    else if (n == 0) return AkkermanFunction(m - 1, 1);
+    else             return AkkermanFunction(m - 1, AkkermanFunction(m, n - 1));
 }
 
 // Основное тело программы.
